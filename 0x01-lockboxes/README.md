@@ -1,6 +1,3 @@
-Certainly! Here's the updated README.md file with the additional resources included:
-
-```markdown
 # Lockboxes
 
 ## Introduction
@@ -61,4 +58,3 @@ To use the `canUnlockAll` function, import it into your Python script and call i
 
 ## License
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
-```
