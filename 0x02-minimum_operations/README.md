@@ -63,7 +63,7 @@ Min number of operations to reach 12 characters: 7
 
 #### Additional Resources
 
-- Mock Technical Interview preparation.
+- [Mock Technical Interview preparation](https://www.youtube.com/watch?feature=shared&v=h4i4kjwncoU).
 - Further study materials for dynamic programming, prime factorization, Python optimization, and greedy algorithms.
 
 By leveraging these resources and understanding the outlined concepts, developers can effectively tackle the "Minimum Operations" problem, employing both mathematical reasoning and programming skills to find the most efficient solution.
