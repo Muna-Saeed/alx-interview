@@ -10,13 +10,15 @@ import re
 
 
 total_size = 0
-status_counts = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
+status_counts = {
+    200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0
+    }
 line_count = 0
 
-#log_regex = re.compile(r'^\S+ - \[\S+ \S+\] "GET /projects/260 HTTP/1.1" (\d{3}) (\d+)$')
-
 log_regex = re.compile(
- r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} - \[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d+\] "GET /projects/260 HTTP/1.1" (.{3}) (\d+)')  # nopep8
+    r'^\S+ - \[\S+ \S+\] "GET /projects/260 HTTP/1.1" (\d{3}) (\d+)$'
+    )
+
 
 def print_summary():
     """ Print the summary of log data """
@@ -25,10 +27,12 @@ def print_summary():
         if status_counts[code] > 0:
             print(f"{code}: {status_counts[code]}")
 
+
 def signal_handler(sig, frame):
     """ Handle the signal to print summary """
     print_summary()
     sys.exit(0)
+
 
 # Register the signal handler for keyboard interruption
 signal.signal(signal.SIGINT, signal_handler)
