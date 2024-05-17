@@ -3,6 +3,7 @@ import sys
 import signal
 import re
 
+
 # Initialize variables
 total_size = 0
 status_counts = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
@@ -27,30 +28,25 @@ def signal_handler(sig, frame):
 signal.signal(signal.SIGINT, signal_handler)
 
 # Process input lines
-try:
-    for line in sys.stdin:
-        line = line.strip()
-        match = log_regex.match(line)
-        if match:
-            status_code = int(match.group(1))
-            file_size = int(match.group(2))
+for line in sys.stdin:
+    line = line.strip()
+    match = log_regex.match(line)
+    if match:
+        status_code = int(match.group(1))
+        file_size = int(match.group(2))
 
-            # Update total file size
-            total_size += file_size
+        # Update total file size
+        total_size += file_size
 
-            # Update status code counts
-            if status_code in status_counts:
-                status_counts[status_code] += 1
+        # Update status code counts
+        if status_code in status_counts:
+            status_counts[status_code] += 1
 
-            line_count += 1
+        line_count += 1
 
-            # Print summary every 10 lines
-            if line_count % 10 == 0:
-                print_summary()
-except KeyboardInterrupt:
-    # Print summary when interrupted by keyboard (CTRL + C)
-    print_summary()
-    sys.exit(0)
+        # Print summary every 10 lines
+        if line_count % 10 == 0:
+            print_summary()
 
 # Print final summary when the input ends
 print_summary()
