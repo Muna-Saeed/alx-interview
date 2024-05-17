@@ -57,8 +57,6 @@ By studying these concepts and utilizing the resources provided, you will be wel
 
 ## How to Use
 
-## How to Use
-
 ### Running the Log Generator
 
 First, ensure `0-generator.py` is executable. You can make it executable by running:
