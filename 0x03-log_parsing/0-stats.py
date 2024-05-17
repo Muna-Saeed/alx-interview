@@ -15,7 +15,8 @@ line_count = 0
 
 #log_regex = re.compile(r'^\S+ - \[\S+ \S+\] "GET /projects/260 HTTP/1.1" (\d{3}) (\d+)$')
 
-log_regex = re.compile(r"^(\S+)\s*-\s*\[.*?\] \"GET /projects/260 HTTP/1.1\" (\S+) (\d+)$")
+log_regex = re.compile(
+ r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} - \[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d+\] "GET /projects/260 HTTP/1.1" (.{3}) (\d+)')  # nopep8
 
 def print_summary():
     """ Print the summary of log data """
