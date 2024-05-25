@@ -22,8 +22,7 @@ def validUTF8(data):
     for num in data:
         
         # Ensure num is within a byte range (0-255)
-        if num > 255:
-            return False
+        num = num & 0xFF  # Masking to consider only the least significant 8 bits
         
         # If num_bytes is zero, we need to start a new UTF-8 character
         if num_bytes == 0:
