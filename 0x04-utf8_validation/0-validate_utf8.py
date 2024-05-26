@@ -10,7 +10,7 @@ def validUTF8(data):
     :param data: List of integers representing the data
     :return: True if valid UTF-8 encoding, False otherwise
     """
-    
+
     # Number of bytes in the current UTF-8 character
     num_bytes = 0
 
@@ -20,10 +20,10 @@ def validUTF8(data):
 
     # Loop through each integer in the data list
     for num in data:
-        
+
         # Ensure num is within a byte range (0-255)
-        num = num & 0xFF  # Masking to consider only the least significant 8 bits
-        
+        num = num & 0xFF  # Masking only the least significant 8 bits
+
         # If num_bytes is zero, we need to start a new UTF-8 character
         if num_bytes == 0:
             # Count the number of leading 1s in the first byte
@@ -31,21 +31,21 @@ def validUTF8(data):
             while mask & num:
                 num_bytes += 1
                 mask = mask >> 1
-            
+
             # 1-byte characters (0xxxxxxx) or invalid 0xxxxxx
             if num_bytes == 0:
                 continue
-            
-            # If the number of bytes is more than 4 or is 1 (which is invalid in UTF-8)
+
+            # If the number of bytes is more than 4 or is 1
             if num_bytes == 1 or num_bytes > 4:
                 return False
         else:
             # Check that the num is of the form 10xxxxxx
             if not (num & mask1 and not (num & mask2)):
                 return False
-        
+
         # Decrement the number of bytes to process
         num_bytes -= 1
-    
+
     # If we finish processing and have processed all bytes correctly
     return num_bytes == 0
