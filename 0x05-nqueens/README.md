@@ -64,12 +64,15 @@ To use this program, you need to run it from the command line. The program expec
 
 ```bash
 ./0-nqueens.py N
-Requirements
+```
+
+## Requirements
 The program should be executed with exactly one argument.
 The argument must be an integer greater than or equal to 4.
 If the argument is not valid, the program will print an error message and exit with a status code of 1.
 Error Messages
 If the user called the program with the wrong number of arguments, print:
+
 ```plaintext
 Usage: nqueens N
 ```
