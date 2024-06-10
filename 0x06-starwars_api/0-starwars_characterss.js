@@ -24,7 +24,7 @@ request(filmUrl, (error, response, body) => {
   const filmData = JSON.parse(body);
   const characterUrls = filmData.characters;
 
-  function fetchCharacterName (url, callback) {
+  function fetchCharacterName(url, callback) {
     request(url, (error, response, body) => {
       if (error) {
         callback(error);
