@@ -14,6 +14,7 @@ def sieve_of_eratosthenes(max_n):
         p += 1
     return [p for p in range(max_n + 1) if primes[p]]
 
+
 def count_primes(primes, n):
     """
     Counts the number of prime numbers
@@ -26,6 +27,7 @@ def count_primes(primes, n):
         else:
             break
     return count
+
 
 def isWinner(x, nums):
     """
