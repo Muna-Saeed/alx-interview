@@ -1,6 +1,9 @@
 #!/usr/bin/python3
+"""Module for Prime Game"""
+
 
 def sieve_of_eratosthenes(max_n):
+    """find all prime numbers up to a given limit n"""
     primes = [True] * (max_n + 1)
     primes[0] = primes[1] = False
     p = 2
@@ -11,7 +14,12 @@ def sieve_of_eratosthenes(max_n):
         p += 1
     return [p for p in range(max_n + 1) if primes[p]]
 
+
 def count_primes(primes, n):
+    """
+    Counts the number of prime numbers
+    up to n in each round.
+    """
     count = 0
     for prime in primes:
         if prime <= n:
@@ -20,7 +28,12 @@ def count_primes(primes, n):
             break
     return count
 
+
 def isWinner(x, nums):
+    """
+    Determines the winner based on
+    the count of prime numbers
+    """
     max_n = max(nums)
     primes = sieve_of_eratosthenes(max_n)
     
@@ -40,7 +53,3 @@ def isWinner(x, nums):
         return "Ben"
     else:
         return None
-
-# Example usage
-if __name__ == "__main__":
-    print("Winner: {}".format(isWinner(5, [2, 5, 1, 4, 3])))
