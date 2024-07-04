@@ -3,17 +3,16 @@
 
 
 def sieve_of_eratosthenes(max_n):
-    """find all prime numbers up to a given limit n"""
+    """Find all prime numbers up to a given limit n"""
     primes = [True] * (max_n + 1)
     primes[0] = primes[1] = False
     p = 2
     while (p * p <= max_n):
-        if (primes[p] == True):
+        if primes[p]:
             for i in range(p * p, max_n + 1, p):
                 primes[i] = False
         p += 1
     return [p for p in range(max_n + 1) if primes[p]]
-
 
 def count_primes(primes, n):
     """
@@ -27,7 +26,6 @@ def count_primes(primes, n):
         else:
             break
     return count
-
 
 def isWinner(x, nums):
     """
