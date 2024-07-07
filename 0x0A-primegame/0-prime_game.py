@@ -41,7 +41,7 @@ def isWinner(x, nums):
 
     max_n = max(nums)
     primes = sieve_of_eratosthenes(max_n)
-    
+   
     maria_wins = 0
     ben_wins = 0
 
